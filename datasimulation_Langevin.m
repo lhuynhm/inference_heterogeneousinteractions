@@ -1,5 +1,5 @@
 % Linh Huynh, April 2022
-function [Smat,Rmat,t,dt] = datasimulation_Langevine(bfunc_S,dfunc_S,bfunc_R,dfunc_R,nrun,tmax,dt,S0,R0)
+function [Smat,Rmat,t,dt] = datasimulation_Langevin(bfunc_S,dfunc_S,bfunc_R,dfunc_R,nrun,tmax,dt,S0,R0)
     tic   
     %tmax = 3000; 
     %dt   = 1/30; %logistic growth
@@ -29,9 +29,9 @@ function [Smat,Rmat,t,dt] = datasimulation_Langevine(bfunc_S,dfunc_S,bfunc_R,dfu
     end
 
     % Ought to protect against X<0 but probably won't happen for these params.
-    runtime=toc;
-    disp('Run time')
-    disp(runtime)
+    % runtime=toc;
+    % disp('Run time')
+    % disp(runtime)
 
     %% Store
     %save datasimulation_Langevine.mat
