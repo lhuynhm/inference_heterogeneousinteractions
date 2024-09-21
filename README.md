@@ -1,1 +1,1 @@
-Code for Erin Beckman, Heyrim Cho, Linh Huynh (alphabetically-ordered equal authors) 2024 "Inferring Birth-Regulated vs. Death-Regulated Ecological Interactions in Stochastic Heterogeneous Populations"
+Code for Erin Beckman, Heyrim Cho, Linh Huynh (alphabetically-ordered equal co-authors) 2024 "Inferring Birth-Regulated vs. Death-Regulated Ecological Interactions in Stochastic Heterogeneous Populations"
