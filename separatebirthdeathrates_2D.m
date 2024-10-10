@@ -1,5 +1,4 @@
 function [bSS_estimated,dSS_estimated,bRR_estimated,dRR_estimated,binedgesS,binedgesR,IDS,IDR,dSvarvec,dRvarvec,dSmoment3cen,dRmoment3cen] = separatebirthdeathrates_2D(Smat,Rmat,dt,Sbinsize,Rbinsize)
-%function [binleftindexSRvec] = separatebirthdeathrates_2D(Smat,Rmat,dt,Sbinsize,Rbinsize)
 % By Linh Huynh, December 22, 2023
 % Smat, Rmat: each row is a time series trajectory.
 % Row i of Smat corresponds to row i of Rmat, as we simulate a pair of
@@ -32,23 +31,9 @@ function [bSS_estimated,dSS_estimated,bRR_estimated,dRR_estimated,binedgesS,bine
     end
     binleftindexSvec = reshape(binleftindexSmat,[nrS*(ncS-1),1]);
     binleftindexRvec = reshape(binleftindexRmat,[nrR*(ncR-1),1]);
-    % binleftindexSRvec = [];
-
-
-    % for r = 1:nrS*(ncS-1)
-    %     idS = binleftindexSvec(r,1);
-    %     idR = binleftindexRvec(r,1);
-    %     idSR = str2double(strcat(num2str(idS),num2str(idR)));
-    %     binleftindexSRvec(r,1) = idSR;
-    % end
 
     [G,IDS,IDR] = findgroups(binleftindexSvec,binleftindexRvec);
-    %indices = [IDS,IDR];
-    %indices output gives the grid points of the estimated values for birth and death;
-%any grid point which is not included in the list of indices did not have
-%any data points in it.
-%
-
+    
     dSmeanvec = splitapply(@mean,dSvec,G);
     dSvarvec  = splitapply(@var,dSvec,G);
 
@@ -83,7 +68,7 @@ function [bSS_estimated,dSS_estimated,bRR_estimated,dRR_estimated,binedgesS,bine
     bRR_estimated = (dRvarvec+dRmeanvec)./(2*dt);
     dRR_estimated = (dRvarvec-dRmeanvec)./(2*dt);  
 
-        % shift to mid bin 
+    % shift to mid bin 
     binedgesS = binedgesS + (binedgesS(2)-binedgesS(1))/2; 
     binedgesR = binedgesR + (binedgesR(2)-binedgesR(1))/2; 
 

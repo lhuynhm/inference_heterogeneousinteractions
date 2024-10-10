@@ -1,14 +1,14 @@
 % close all; clear all;
+
 set(0, 'DefaultLineLineWidth', 1);
 Tstart = tic; 
+
 % Linh Huynh, May 15, 2024
 % Heyrim Cho, May 16, 2024
 % Sequential Inference
 
 %% Parameters  PC3 cell line 
 rS      = 0.293;
-% rS = b0S - d0S; b0S/d0S = 1/18.3 / 0.015; 
-% b0S * 18.3 * 0.015; 
 b0S     = rS/(1 - 18.3*0.015); 
 d0S     = b0S - rS; 
 KS      = 0.843*10^3; 
